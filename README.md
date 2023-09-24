@@ -25,5 +25,5 @@ Run the server automaticlly by systemd
 ```
 sudo cp python-http-server.service /etc/systemd/system/
 sudo systemctl daemon-reload
-systemctl enable python-http-server.service
+sudo systemctl enable python-http-server.service
 ```
