@@ -1,0 +1,11 @@
+[Unit]
+Description=Python HTTPServer
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/randomprint/server
+ExecStart=/usr/bin/python3 /home/pi/randomprint/server/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
