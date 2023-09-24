@@ -3,8 +3,9 @@ from urllib.parse import urlparse
 import json
 import sys
 
+# Default port
 PORT = 8000
-
+# Empty JSON dictionary
 j_dict = {}
 
 try: 
@@ -43,7 +44,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(f.read(-1).encode('utf-8'))
             f.close()
 
-        # HTTP GET to JSON
+        # HTTP GET query string to JSON
         q = urlparse(self.path).query
         # print(q)
         try: 
