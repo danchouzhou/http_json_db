@@ -5,6 +5,10 @@ To run the server, simply execute the Python script.
 ```
 python3 server.py
 ```
+Run the server by specific port number
+```
+python3 server.py 9693
+```
 Upload parameter by HTTP GET query string
 ```
 http://127.0.0.1:9693/?key=value
