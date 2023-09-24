@@ -4,6 +4,7 @@ Description=Python HTTPServer
 [Service]
 Type=simple
 WorkingDirectory=/home/pi/http_json_db/
+User=pi
 KillSignal=SIGINT
 ExecStart=/usr/bin/python3 /home/pi/http_json_db/server.py 9693
 Restart=always
