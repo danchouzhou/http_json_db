@@ -1,8 +1,15 @@
 import http.server
 from urllib.parse import urlparse
 import json
+import sys
 
-PORT = 9693
+try: 
+    PORT = int(sys.argv[1])
+except Exception as e:
+    print('Error occurred.', e)
+    print('Use default port number: 8000')
+    PORT = 8000
+
 j_dict = {}
 
 class Handler(http.server.BaseHTTPRequestHandler):

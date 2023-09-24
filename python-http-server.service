@@ -4,7 +4,7 @@ Description=Python HTTPServer
 [Service]
 Type=simple
 WorkingDirectory=/home/pi/http_json_db/
-ExecStart=/usr/bin/python3 /home/pi/http_json_db/server.py
+ExecStart=/usr/bin/python3 /home/pi/http_json_db/server.py 9693
 Restart=always
 
 [Install]
