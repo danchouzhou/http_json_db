@@ -15,7 +15,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type','application/json')
             self.end_headers()
-            self.wfile.write(json.dumps(j_dict).encode('utf-8')) # Dictionary to string
+            j_str = json.dumps(j_dict) # Dictionary to string
+            self.wfile.write(j_str.encode('utf-8'))
 
         else : 
             self.send_response(200)
