@@ -3,8 +3,8 @@ Description=Python HTTPServer
 
 [Service]
 Type=simple
-WorkingDirectory=/home/pi/randomprint/
-ExecStart=/usr/bin/python3 /home/pi/randomprint/main.py
+WorkingDirectory=/home/pi/http_json_db/
+ExecStart=/usr/bin/python3 /home/pi/http_json_db/server.py
 Restart=always
 
 [Install]
