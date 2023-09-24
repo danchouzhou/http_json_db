@@ -5,7 +5,7 @@ To run the server, simply execute the Python script.
 ```
 python3 server.py
 ```
-Run the server by specific port number
+Run the server with specific port number
 ```
 python3 server.py 9693
 ```
