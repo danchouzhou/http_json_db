@@ -17,3 +17,9 @@ Get JSON then update parameter
 ```
 http://127.0.0.1:9693/get_json?key=value_new
 ```
+Run the server automaticlly by systemd
+```
+sudo cp python-http-server.service /etc/systemd/system/
+sudo systemctl daemon-reload
+systemctl enable example.service
+```
