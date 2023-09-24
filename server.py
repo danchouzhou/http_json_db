@@ -8,12 +8,14 @@ PORT = 8000
 # Empty JSON dictionary
 j_dict = {}
 
+# Get server listing port number or use default port number
 try: 
     PORT = int(sys.argv[1])
 except Exception as e:
     print('Error while reading port number.', e)
     print('Use default port number:', PORT)
 
+# Read saved JSON db
 try:
     f = open('db.json', 'r')
     j_str = f.read()
@@ -65,7 +67,7 @@ try:
     httpd.serve_forever()
 except Exception as e:
     print('Error occurred.', e)
-except KeyboardInterrupt:
+except KeyboardInterrupt: # Stop the server and save JSON db
     httpd.shutdown()
     f = open('db.json', 'w')
     j_str = json.dumps(j_dict)
