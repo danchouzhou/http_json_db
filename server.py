@@ -3,14 +3,24 @@ from urllib.parse import urlparse
 import json
 import sys
 
+PORT = 8000
+
+j_dict = {}
+
 try: 
     PORT = int(sys.argv[1])
 except Exception as e:
-    print('Error occurred.', e)
-    print('Use default port number: 8000')
-    PORT = 8000
+    print('Error while reading port number.', e)
+    print('Use default port number:', PORT)
 
-j_dict = {}
+try:
+    f = open('db.json', 'r')
+    j_str = f.read()
+    f.close()
+    j_dict = json.loads(j_str)
+except Exception as e:
+    print('Error while reading JSON file.', e)
+    print('Use empty JSON dictionary.')
 
 class Handler(http.server.BaseHTTPRequestHandler):
 
@@ -56,3 +66,7 @@ except Exception as e:
     print('Error occurred.', e)
 except KeyboardInterrupt:
     httpd.shutdown()
+    f = open('db.json', 'w')
+    j_str = json.dumps(j_dict)
+    f.write(j_str)
+    f.close()
