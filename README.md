@@ -13,6 +13,10 @@ Upload parameter by HTTP GET query string
 ```
 http://127.0.0.1:9693/?key=value
 ```
+Append value to a specific keys
+```
+http://127.0.0.1:9693/append?key=value
+```
 Get JSON
 ```
 http://127.0.0.1:9693/get_json

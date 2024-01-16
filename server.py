@@ -31,7 +31,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         p = urlparse(self.path).path
         print(p)
         
-        if (p == "/get_json"): 
+        if (p.find("/get_json") != -1): 
             self.send_response(200)
             self.send_header('Content-type','application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
@@ -58,7 +58,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 # print(t)
                 r[t[0]] = t[1]
             # print(r)
-            j_dict.update(r)
+            if (p.find("/append") != -1):
+                for k, v in r.items():
+                    # Check if key exist
+                    if bool(j_dict.get(k)):
+                        j_dict[k] += "," + v
+                    else :
+                        j_dict[k] = v
+            else :
+                j_dict.update(r)
         except Exception as e:
             print('Error occurred.', e)
 
