@@ -5,8 +5,9 @@ Description=Python HTTPServer
 Type=simple
 WorkingDirectory=/home/pi/http_json_db/
 User=pi
-KillSignal=SIGINT
-ExecStart=/usr/bin/python3 /home/pi/http_json_db/server.py 9693
+KillSignal=SIGCONT
+ExecStart=/usr/bin/screen -DmS python-http-server python3 /home/pi/http_json_db/server.py 9693
+ExecStop=/usr/bin/screen -p 0 -S python-http-server -X stuff '^C'
 Restart=always
 
 [Install]
